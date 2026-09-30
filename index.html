@@ -66,6 +66,17 @@
     .gallery-note{font-size:.76rem;color:var(--muted);margin-top:16px}
     .reviews{background:var(--beige)}.reviews-box{margin-top:20px;padding:24px;border:1px dashed var(--line);border-radius:10px;color:var(--muted);font-size:.9rem;max-width:640px;background:#fff}
     .booking{background:var(--white)}
+    .request-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start}.request-phone{display:inline-block;margin-top:22px;font:600 clamp(1.5rem,3vw,2rem) var(--serif);color:var(--terracotta)}
+    .request-dark{background:var(--wood);color:#fff}.request-dark .eyebrow{color:#e8c9a8}.request-dark .lead{color:#e9ddd0}.request-dark .request-phone{color:#ebbfa2}
+    .request-form{display:grid;grid-template-columns:1fr 1fr;gap:16px 14px;padding:32px;background:#fff;color:var(--graphite);border:1px solid var(--line);border-radius:12px}
+    .field{display:grid;gap:6px;align-content:start;min-width:0;font-size:.8rem;font-weight:700;color:var(--wood)}.field.full{grid-column:1/-1}.field small{font-weight:400;color:var(--muted)}
+    .field input,.field select,.field textarea{width:100%;min-height:48px;padding:11px 14px;border:1px solid var(--line);border-radius:9px;background:var(--cream);color:var(--graphite);font:400 1rem var(--sans)}.field textarea{min-height:104px;resize:vertical}
+    .field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible{outline:3px solid var(--terracotta);outline-offset:1px}.field [aria-invalid=true]{border-color:#a3361c;background:#fff6f1}
+    [data-error-for]{font-weight:600;color:#a3361c}[data-error-for]:empty{display:none}.trap{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+    .request-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:14px}.request-foot .btn[disabled]{opacity:.6;cursor:wait;transform:none}.request-note{flex:1;min-width:200px;margin:0;color:var(--muted);font-size:.78rem}
+    [data-status]{grid-column:1/-1;margin:0;padding:14px 16px;border-radius:9px;border-left:3px solid var(--green);background:var(--cream);font-size:.92rem}[data-status]:empty{display:none}[data-status][data-state=error]{border-color:#a3361c;background:#fff6f1}[data-status] a{font-weight:700;text-decoration:underline}
+    @media(max-width:900px){.request-grid{grid-template-columns:1fr;gap:32px}}
+    @media(max-width:600px){.request-form{grid-template-columns:1fr;padding:22px 16px}}
     .final{min-height:440px;position:relative;display:grid;place-items:center;text-align:center;color:#fff;overflow:hidden}
     .final>div{position:relative;z-index:1;padding:60px 20px;max-width:680px}
     .final h2{font:600 clamp(2.1rem,5.2vw,3.7rem)/1.1 var(--serif);letter-spacing:-.01em;margin:.2em 0}.final .actions{justify-content:center}.final small{display:block;margin-top:22px;letter-spacing:.12em;text-transform:uppercase;color:#e9d8c8}
@@ -89,24 +100,25 @@
 </head>
 <body>
   <a class="skip" href="#top">До основного вмісту</a>
-  <header><div class="wrap header-in"><a class="brand" href="#top" aria-label="Готель «Каприз», Проживання · Відпочинок · Кам’янець-Подільський"><span class="brand-name">Готель «Каприз»</span></a><nav id="nav" class="links" aria-label="Основна навігація"><a href="#stay">Проживання</a><a href="#kitchen">Кухня</a><a href="#outside">Альтанка</a><a href="#sauna">Сауна / Баня</a><a href="#gallery">Галерея</a><a href="#contacts">Контакти</a></nav><a class="phone" href="tel:+380987187475">+38 098 718 74 75</a><a class="btn primary" href="#booking">Перевірити проживання</a></div></header>
+  <header><div class="wrap header-in"><a class="brand" href="#top" aria-label="Готель «Каприз», Проживання · Відпочинок · Кам’янець-Подільський"><span class="brand-name">Готель «Каприз»</span></a><nav id="nav" class="links" aria-label="Основна навігація"><a href="#stay">Проживання</a><a href="#kitchen">Кухня</a><a href="#outside">Альтанка</a><a href="#sauna">Сауна / Баня</a><a href="#gallery">Галерея</a><a href="#contacts">Контакти</a></nav><a class="phone" href="tel:+380987187475">+38 098 718 74 75</a><a class="btn primary" href="#stay-request">Перевірити проживання</a></div></header>
   <main id="top">
-    <section class="hero"><div class="hero-media"><video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="images/hero.jpg"><source src="hero-bg.mp4" type="video/mp4"></video></div><div class="wrap hero-content"><span class="eyebrow">Кам’янець-Подільський</span><h1>Готель «Каприз»</h1><h2>Залишайтеся. Готуйте. Відпочивайте.</h2><p>Затишні номери, загальна кухня, альтанка, мангал і банний відпочинок.</p><div class="actions"><a class="btn primary" href="#stay">Переглянути проживання</a><a class="btn" style="border-color:#fff;color:#fff" href="#sauna">Уточнити сауну / баню</a></div><div class="hero-address"><span>вул. Лесі Українки, 122</span><a href="https://www.google.com/maps/search/?api=1&query=Готель+Каприз,+вул.+Лесі+Українки+122,+Кам’янець-Подільський" target="_blank" rel="noopener">Показати на карті →</a></div></div><span class="image-note">Ілюстративне зображення</span></section>
+    <section class="hero"><div class="hero-media"><video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="images/hero.jpg"><source src="hero-bg.mp4" type="video/mp4"></video></div><div class="wrap hero-content"><span class="eyebrow">Кам’янець-Подільський</span><h1>Готель «Каприз»</h1><h2>Залишайтеся. Готуйте. Відпочивайте.</h2><p>Затишні номери, загальна кухня, альтанка, мангал і банний відпочинок.</p><div class="actions"><a class="btn primary" href="#stay">Переглянути проживання</a><a class="btn" style="border-color:#fff;color:#fff" href="#sauna-request">Уточнити сауну / баню</a></div><div class="hero-address"><span>вул. Лесі Українки, 122</span><a href="https://www.google.com/maps/search/?api=1&query=Готель+Каприз,+вул.+Лесі+Українки+122,+Кам’янець-Подільський" target="_blank" rel="noopener">Показати на карті →</a></div></div><span class="image-note">Ілюстративне зображення</span></section>
     <section class="facts"><div class="wrap facts-grid reveal-group"><div class="fact reveal-item"><b>Затишні номери</b><span>Проживання</span></div><div class="fact reveal-item"><b>Спільна кухня</b><span>Самостійне приготування</span></div><div class="fact reveal-item"><b>Альтанка</b><span>Відпочинок надворі</span></div><div class="fact reveal-item"><b>Мангал</b><span>На території</span></div><div class="fact reveal-item"><b>Сауна / баня</b><span>За попереднім уточненням</span></div></div></section>
     <section class="section" id="about"><div class="wrap about-grid"><div class="stay-media reveal"><img src="images/about.jpg" alt="Готель «Каприз», ілюстративне зображення"></div><div class="reveal"><span class="eyebrow">Про готель</span><h2>Для тих, хто хоче трохи більше свободи</h2><p class="lead">«Каприз» пропонує не лише проживання: джерельний опис описує затишні номери, спільну кухню, альтанку, мангал та сауну/баню, формат, де гість може провести час більш незалежно.</p><a class="btn primary" href="#stay">Перевірити номер</a></div></div></section>
     <section class="section stay" id="stay"><div class="wrap stay-grid"><div class="stay-media reveal"><img src="images/room.jpg" alt="Готель «Каприз», ілюстративне зображення проживання"></div><div class="reveal"><span class="eyebrow">Проживання</span><h2>Затишні номери</h2><p class="lead">Джерело прямо називає номери затишними. Точна кількість номерів, категорії, місткість і ціни наразі не підтверджені.</p><div class="stay-note">До публікації реальних карток потрібні: кількість номерів, категорії, ліжка, санвузол, Wi-Fi, A/C, TV та ціни.</div></div></div></section>
     <section class="feature kitchen" id="kitchen"><div class="feature-copy"><div class="reveal"><span class="eyebrow">Кухня</span><h2>Готуйте самостійно</h2><p class="lead">Джерело підтверджує загальну кухню для самостійного приготування їжі, спільну, а не приватну для кожного номера. Це одна з найпомітніших переваг «Каприз».</p><p class="fine">Конкретне оснащення: плита, холодильник, мікрохвильова піч, посуд, години доступу, наразі не підтверджене. Формат харчування (сніданок, ресторан чи кафе) наразі не підтверджений, уточнюйте окремо.</p></div></div><div class="feature-media reveal"><img src="images/kitchen.jpg" alt="Спільна кухня, ілюстративне зображення"></div></section>
-    <section class="section outside" id="outside"><div class="wrap"><span class="eyebrow">Двір · Мангал</span><h2>Час на свіжому повітрі</h2><p class="lead">Альтанка та мангал підтверджені у джерельному описі.</p><div class="outside-grid reveal-group"><article class="outside-card reveal-item"><b>Альтанка</b><p>Місткість, доступ (для гостей чи оренда), електрика та години користування наразі не підтверджені.</p></article><article class="outside-card reveal-item"><b>Мангал</b><p>Дрова, шампури та посуд наразі не підтверджені, умови користування уточнюйте окремо.</p></article></div><a class="btn green" style="margin-top:26px" href="#booking">Уточнити умови</a></div></section>
-    <section class="feature sauna" id="sauna"><div class="feature-media reveal"><img src="images/sauna.jpg" alt="Сауна / баня, ілюстративне зображення"></div><div class="feature-copy"><div class="reveal"><span class="eyebrow">Відпочинок</span><h2>Сауна / баня</h2><p class="lead">У джерельних даних згадані і «російська сауна», і «баня на дровах», поки не встановлено, чи це один і той самий простір, чи два різні. Місткість, тип, тривалість сеансу та вартість уточнюйте під час бронювання.</p><a class="btn primary" href="#booking">Уточнити сауну / баню</a><p class="fine">Басейн, джакузі, чан і хамам не підтверджені. Сторінка про них не говорить.</p></div></div></section>
+    <section class="section outside" id="outside"><div class="wrap"><span class="eyebrow">Двір · Мангал</span><h2>Час на свіжому повітрі</h2><p class="lead">Альтанка та мангал підтверджені у джерельному описі.</p><div class="outside-grid reveal-group"><article class="outside-card reveal-item"><b>Альтанка</b><p>Місткість, доступ (для гостей чи оренда), електрика та години користування наразі не підтверджені.</p></article><article class="outside-card reveal-item"><b>Мангал</b><p>Дрова, шампури та посуд наразі не підтверджені, умови користування уточнюйте окремо.</p></article></div><a class="btn green" style="margin-top:26px" href="#stay-request">Уточнити умови</a></div></section>
+    <section class="feature sauna" id="sauna"><div class="feature-media reveal"><img src="images/sauna.jpg" alt="Сауна / баня, ілюстративне зображення"></div><div class="feature-copy"><div class="reveal"><span class="eyebrow">Відпочинок</span><h2>Сауна / баня</h2><p class="lead">У джерельних даних згадані і «російська сауна», і «баня на дровах», поки не встановлено, чи це один і той самий простір, чи два різні. Місткість, тип, тривалість сеансу та вартість уточнюйте під час бронювання.</p><a class="btn primary" href="#sauna-request">Забронювати сауну / баню</a><p class="fine">Басейн, джакузі, чан і хамам не підтверджені. Сторінка про них не говорить.</p></div></div></section>
+    <section class="section request-dark" id="sauna-request"><div class="wrap request-grid"><div class="reveal"><span class="eyebrow">Сауна / баня</span><h2>Забронюйте банний відпочинок</h2><p class="lead">Вкажіть бажаний день, час і кількість людей. Ми передзвонимо, щоб уточнити формат, тривалість і вартість.</p><a class="request-phone" href="tel:+380987187475">+38 098 718 74 75</a></div><form class="request-form reveal" data-hotelos data-form-name="Бронювання сауни" novalidate><label class="field full">Телефон<small>Обов’язково, щоб ми могли передзвонити</small><input name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="sauna-phone-error"><span id="sauna-phone-error" data-error-for="phone"></span></label><label class="field">Ім’я<input name="name" type="text" autocomplete="name" maxlength="200"></label><label class="field">Людей<input name="guests" type="number" min="1" max="50" inputmode="numeric"></label><label class="field">Дата<input name="date" type="date"></label><label class="field">Час<input name="time" type="time"></label><label class="field full">Побажання<textarea name="message" maxlength="5000"></textarea></label><label class="trap" aria-hidden="true">Не заповнюйте<input name="website" type="text" tabindex="-1" autocomplete="off"></label><div class="request-foot"><button class="btn primary" type="submit">Надіслати запит</button><p class="request-note">Номер використаємо лише для відповіді на цей запит.</p></div><p data-status role="status" aria-live="polite"></p></form></div></section>
     <section class="section scenarios"><div class="wrap"><span class="eyebrow">Сценарії для гостей</span><h2>Вихідні з друзями чи спокійна зупинка удвох</h2><div class="scenario-grid reveal-group"><article class="scenario-card reveal-item"><b>Вихідні з друзями</b><p>Спільна кухня, альтанка, мангал і сауна разом, точна групова місткість наразі не підтверджена.</p></article><article class="scenario-card reveal-item"><b>Удвох</b><p>Номер, кухня, альтанка та сауна, без офіційного «романтичного готелю».</p></article></div></div></section>
     <section class="section longer"><div class="wrap"><span class="eyebrow">Довша зупинка</span><h2>Зручно, коли залишаєтеся не на одну ніч</h2><p class="lead">Спільна кухня природно підтримує довшу зупинку, без заяв про тижневі чи місячні тарифи, доки це не підтверджено.</p></div></section>
     <section class="section location" id="contacts"><div class="wrap location-grid reveal-group"><div class="map-card reveal-item"><iframe src="https://www.google.com/maps?q=%D0%93%D0%BE%D1%82%D0%B5%D0%BB%D1%8C%20%D0%9A%D0%B0%D0%BF%D1%80%D0%B8%D0%B7%2C%20%D0%B2%D1%83%D0%BB.%20%D0%9B%D0%B5%D1%81%D1%96%20%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D0%BA%D0%B8%20122%2C%20%D0%9A%D0%B0%D0%BC%E2%80%99%D1%8F%D0%BD%D0%B5%D1%86%D1%8C-%D0%9F%D0%BE%D0%B4%D1%96%D0%BB%D1%8C%D1%81%D1%8C%D0%BA%D0%B8%D0%B9&output=embed" title="Готель «Каприз» на карті" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div><div class="contact-card reveal-item"><span class="eyebrow">Контакти</span><h2 style="font:600 clamp(1.9rem,4vw,2.7rem)/1.05 var(--serif);margin:.2em 0">Каприз</h2><a class="big" href="tel:+380987187475">+38 098 718 74 75</a><dl><dt>Адреса</dt><dd>вул. Лесі Українки, 122, Кам’янець-Подільський</dd><dt>Email / сайт / Instagram</dt><dd>Не підтверджено</dd><dt>Графік роботи</dt><dd>Актуальний статус наразі не підтверджено, зателефонуйте, щоб уточнити</dd></dl></div></div></section>
     <section class="section" id="gallery"><div class="wrap"><span class="eyebrow">Галерея</span><h2>Подивіться «Каприз»</h2><div class="gallery reveal-group"><figure class="reveal-item"><img src="images/room.jpg" alt="Ілюстративний номер" loading="lazy"></figure><figure class="reveal-item"><img src="images/kitchen.jpg" alt="Ілюстративна спільна кухня" loading="lazy"></figure><figure class="reveal-item"><img src="images/gazebo.jpg" alt="Ілюстративна альтанка" loading="lazy"></figure><figure class="reveal-item"><img src="images/sauna.jpg" alt="Ілюстративна сауна" loading="lazy"></figure></div><p class="gallery-note">Зображення поки ілюстративні. Реальні фото номерів, кухні, альтанки, мангалу та сауни/бані буде додано після зйомки на місці.</p></div></section>
-    <section class="section booking" id="booking"><div class="wrap" style="text-align:center"><span class="eyebrow">Контакти</span><h2>Зв’яжіться з нами</h2><p class="lead" style="margin:0 auto">Щоб перевірити проживання, сауну/баню чи альтанку, зателефонуйте нам напряму.</p><div class="contact-card reveal" style="max-width:420px;margin:32px auto 0;text-align:center"><a class="big" href="tel:+380987187475">+38 098 718 74 75</a><p style="margin:0 0 18px">вул. Лесі Українки, 122, Кам’янець-Подільський</p><a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=Готель+Каприз,+вул.+Лесі+Українки+122,+Кам’янець-Подільський" target="_blank" rel="noopener">Відкрити у Google Maps ↗</a></div></div></section>
-    <section class="final" style="background:linear-gradient(rgba(58,44,34,.68),rgba(58,44,34,.68)),url('images/hero.jpg') center/cover"><div class="reveal"><span class="eyebrow" style="color:#ebbfa2">Проживання · Кухня · Мангал · Відпочинок</span><h2>Залишайтеся не тільки на ніч</h2><p>Номери, спільна кухня, альтанка, мангал і банний відпочинок у «Каприз».</p><div class="actions"><a class="btn primary" href="#booking">Перевірити проживання</a><a class="btn" style="border-color:#fff;color:#fff" href="#sauna">Уточнити сауну</a></div><small>+38 098 718 74 75</small></div></section>
+    <section class="section booking" id="stay-request"><div class="wrap request-grid"><div class="reveal"><span class="eyebrow">Запит на проживання</span><h2>Залиште номер, ми передзвонимо</h2><p class="lead">Вкажіть телефон і, за бажанням, дати поїздки. Ми зателефонуємо, щоб перевірити вільні номери й розповісти про кухню, альтанку та мангал.</p><a class="request-phone" href="tel:+380987187475">+38 098 718 74 75</a><p class="fine">вул. Лесі Українки, 122, Кам’янець-Подільський · <a href="https://www.google.com/maps/search/?api=1&query=Готель+Каприз,+вул.+Лесі+Українки+122,+Кам’янець-Подільський" target="_blank" rel="noopener" style="color:var(--terracotta);font-weight:700">Google Maps ↗</a></p></div><form class="request-form reveal" data-hotelos data-form-name="Запит на проживання" novalidate><label class="field full">Телефон<small>Обов’язково, щоб ми могли передзвонити</small><input name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="stay-phone-error"><span id="stay-phone-error" data-error-for="phone"></span></label><label class="field">Ім’я<input name="name" type="text" autocomplete="name" maxlength="200"></label><label class="field">Гостей<input name="guests" type="number" min="1" max="50" inputmode="numeric"></label><label class="field">Дата заїзду<input name="checkIn" type="date"></label><label class="field">Дата виїзду<input name="checkOut" type="date" aria-describedby="stay-checkout-error"><span id="stay-checkout-error" data-error-for="checkOut"></span></label><label class="field full">Побажання<textarea name="message" maxlength="5000"></textarea></label><label class="trap" aria-hidden="true">Не заповнюйте<input name="website" type="text" tabindex="-1" autocomplete="off"></label><div class="request-foot"><button class="btn primary" type="submit">Надіслати запит</button><p class="request-note">Номер використаємо лише для відповіді на цей запит.</p></div><p data-status role="status" aria-live="polite"></p></form></div></section>
+    <section class="final" style="background:linear-gradient(rgba(58,44,34,.68),rgba(58,44,34,.68)),url('images/hero.jpg') center/cover"><div class="reveal"><span class="eyebrow" style="color:#ebbfa2">Проживання · Кухня · Мангал · Відпочинок</span><h2>Залишайтеся не тільки на ніч</h2><p>Номери, спільна кухня, альтанка, мангал і банний відпочинок у «Каприз».</p><div class="actions"><a class="btn primary" href="#stay-request">Перевірити проживання</a><a class="btn" style="border-color:#fff;color:#fff" href="#sauna-request">Уточнити сауну</a></div><small>+38 098 718 74 75</small></div></section>
   </main>
-  <footer><div class="wrap"><div class="footer-grid"><div class="footer-brand"><strong>КАПРИЗ</strong><small>Проживання · Кухня · Мангал · Відпочинок</small></div><div class="footer-col"><b>Проживання</b><a href="#stay">Номери</a><a href="#booking">Бронювання</a></div><div class="footer-col"><b>Кухня</b><a href="#kitchen">Спільна кухня</a></div><div class="footer-col"><b>Двір</b><a href="#outside">Альтанка</a><a href="#outside">Мангал</a></div><div class="footer-col"><b>Відпочинок</b><a href="#sauna">Сауна / Баня</a></div><div class="footer-col"><b>Інформація</b><a href="#gallery">Галерея</a><a href="#contacts">Карта й контакти</a></div></div><div class="footer-bottom"><span>вул. Лесі Українки, 122 · Кам’янець-Подільський</span><span>+38 098 718 74 75</span></div></div></footer>
-  <div class="mobile-sticky"><a href="tel:+380987187475">Подзвонити</a><a href="#booking">Номер</a><a href="#sauna">Сауна</a></div>
+  <footer><div class="wrap"><div class="footer-grid"><div class="footer-brand"><strong>КАПРИЗ</strong><small>Проживання · Кухня · Мангал · Відпочинок</small></div><div class="footer-col"><b>Проживання</b><a href="#stay">Номери</a><a href="#stay-request">Бронювання</a></div><div class="footer-col"><b>Кухня</b><a href="#kitchen">Спільна кухня</a></div><div class="footer-col"><b>Двір</b><a href="#outside">Альтанка</a><a href="#outside">Мангал</a></div><div class="footer-col"><b>Відпочинок</b><a href="#sauna">Сауна / Баня</a></div><div class="footer-col"><b>Інформація</b><a href="#gallery">Галерея</a><a href="#contacts">Карта й контакти</a></div></div><div class="footer-bottom"><span>вул. Лесі Українки, 122 · Кам’янець-Подільський</span><span>+38 098 718 74 75</span></div></div></footer>
+  <div class="mobile-sticky"><a href="tel:+380987187475">Подзвонити</a><a href="#stay-request">Номер</a><a href="#sauna-request">Сауна</a></div>
   <script>
     const observer=new IntersectionObserver(entries=>entries.forEach(e=>e.isIntersecting&&e.target.classList.add('visible')),{threshold:.12});document.querySelectorAll('.reveal,.reveal-group').forEach(el=>observer.observe(el));
     const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -119,6 +131,153 @@
         addEventListener('scroll',()=>{const r=hero.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)heroMedia.style.transform=`translateY(${scrollY*.28}px)`},{passive:true});
       }
     }
+  </script>
+  <script type="module">
+// HotelOS site forms. Paste this whole block into the site's index.html as an inline module
+// script right before the closing body tag, and set the three constants below. Never put a
+// literal closing script tag inside this file: it would end the inline script early.
+// Contract (hotelos.webart.work/CRM.md → Submission data contract, firestore.rules):
+// - every form is <form data-hotelos data-form-name="…" novalidate> inside a <section id="{formId}">;
+//   the section id IS the formId (stable slug, e.g. stay-request, sauna-request) and the CRM
+//   links to SITE + '#' + formId, so the link scrolls to the start of that section;
+// - fields are matched by name: phone (required), name, email, message, checkIn, checkOut, guests,
+//   roomType, date, time, service; a [data-genders] box renders one select per guest (hostels);
+// - errors go to [data-error-for="<name>"], the result to [data-status]; `website` is a honeypot.
+const HOTEL_ID = 'kp-kapryz'; // Firestore hotels/{id}: 'kp-' + site folder name
+const SITE = 'https://kapryz.webart.work/'; // from the site's CNAME
+const PHONE = '+38 098 718 74 75'; // shown when sending fails
+
+const FIREBASE = {
+	apiKey: 'AIzaSyBeSB5EuC4BBSpmCGA3Pjk7dD_JV2SdcSQ',
+	authDomain: 'hotel-upwork.firebaseapp.com',
+	projectId: 'hotel-upwork',
+	appId: '1:40129364672:web:c9659550ebf0f1d8a36325',
+};
+const SDK = 'https://www.gstatic.com/firebasejs/12.19.0/';
+const TEXT_FIELDS = ['name', 'email', 'message', 'checkIn', 'checkOut', 'date', 'time', 'roomType', 'service'];
+const today = new Date(Date.now() - new Date().getTimezoneOffset() * 6e4).toISOString().slice(0, 10);
+
+let db;
+async function firestore() {
+	if (db) return db;
+	// Loaded on first submit only, so the page itself stays light.
+	const [{ initializeApp }, lite] = await Promise.all([import(SDK + 'firebase-app.js'), import(SDK + 'firebase-firestore-lite.js')]);
+	db = { lite, store: lite.getFirestore(initializeApp(FIREBASE)) };
+	return db;
+}
+
+function setup(form) {
+	const formId = form.closest('section[id]')?.id;
+	if (!formId) return console.error('HotelOS form needs a parent <section id="formId">', form);
+	const field = (name) => form.elements.namedItem(name);
+	const statusEl = form.querySelector('[data-status]');
+	const submit = form.querySelector('[type=submit]');
+	const submitLabel = submit.textContent;
+	const gendersBox = form.querySelector('[data-genders]');
+
+	for (const name of ['checkIn', 'checkOut', 'date']) if (field(name)) field(name).min = today;
+	if (field('checkIn') && field('checkOut')) {
+		field('checkIn').addEventListener('change', () => {
+			const checkIn = field('checkIn').value;
+			field('checkOut').min = checkIn || today;
+			if (field('checkOut').value && field('checkOut').value <= checkIn) field('checkOut').value = '';
+		});
+	}
+
+	// Hostels: one gender select per guest, kept in sync with the guests count.
+	function renderGenders() {
+		if (!gendersBox) return;
+		const count = Math.min(Math.max(parseInt(field('guests')?.value, 10) || 1, 1), 20);
+		const current = [...gendersBox.querySelectorAll('select')].map((select) => select.value);
+		gendersBox.replaceChildren(
+			...Array.from({ length: count }, (_, i) => {
+				const label = document.createElement('label');
+				label.textContent = `Гість ${i + 1}`;
+				const select = document.createElement('select');
+				select.name = 'gender';
+				select.required = true;
+				select.innerHTML = '<option value="">Стать</option><option value="female">Жінка</option><option value="male">Чоловік</option>';
+				select.value = current[i] ?? '';
+				label.append(select);
+				return label;
+			}),
+		);
+	}
+	if (gendersBox) {
+		field('guests')?.addEventListener('input', renderGenders);
+		renderGenders();
+	}
+
+	function setError(name, text) {
+		const input = field(name);
+		if (input instanceof Element) input.setAttribute('aria-invalid', text ? 'true' : 'false');
+		const slot = form.querySelector(`[data-error-for="${name}"]`);
+		if (slot) slot.textContent = text;
+	}
+
+	function showStatus(state, html) {
+		statusEl.dataset.state = state;
+		statusEl.innerHTML = html;
+	}
+
+	form.addEventListener('submit', async (event) => {
+		event.preventDefault();
+		showStatus('', '');
+		const phone = field('phone').value.trim();
+		const digits = phone.replace(/\D/g, '');
+		setError('phone', digits.length < 9 || digits.length > 15 ? 'Вкажіть номер телефону, щоб ми могли передзвонити.' : '');
+		if (field('checkIn') && field('checkOut')) {
+			const { value: checkIn } = field('checkIn');
+			const { value: checkOut } = field('checkOut');
+			setError('checkOut', checkIn && checkOut && checkOut <= checkIn ? 'Дата виїзду має бути пізніше за дату заїзду.' : '');
+		}
+		const genderSelects = gendersBox ? [...gendersBox.querySelectorAll('select')] : [];
+		if (gendersBox) {
+			const missing = genderSelects.some((select) => !select.value);
+			for (const select of genderSelects) select.setAttribute('aria-invalid', missing && !select.value ? 'true' : 'false');
+			const slot = form.querySelector('[data-error-for="genders"]');
+			if (slot) slot.textContent = missing ? 'Вкажіть стать кожного гостя, щоб ми підібрали місця.' : '';
+		}
+		const invalid = form.querySelector('[aria-invalid=true]');
+		if (invalid) return invalid.focus();
+
+		const thanks = `Дякуємо! Ми зателефонуємо на ${phone.replace(/</g, '')} найближчим часом.`;
+		// Bots fill the hidden field: pretend success, send nothing.
+		if (field('website')?.value) {
+			form.reset();
+			renderGenders();
+			return showStatus('ok', thanks);
+		}
+
+		const lead = { phone, formId, formName: form.dataset.formName, site: SITE, hotelId: HOTEL_ID };
+		for (const name of TEXT_FIELDS) {
+			const value = field(name)?.value?.trim();
+			if (value) lead[name] = value;
+		}
+		const guests = parseInt(field('guests')?.value, 10);
+		if (guests >= 1 && guests <= 50) lead.guests = guests;
+		if (genderSelects.length) lead.genders = genderSelects.map((select) => select.value);
+
+		submit.disabled = true;
+		submit.textContent = 'Надсилаємо…';
+		try {
+			const { lite, store } = await firestore();
+			await lite.addDoc(lite.collection(store, 'submissions'), { ...lead, status: 'new', history: [], createdAt: lite.serverTimestamp() });
+			form.reset();
+			if (field('checkOut')) field('checkOut').min = today;
+			renderGenders();
+			showStatus('ok', thanks);
+		} catch (error) {
+			console.error(error);
+			showStatus('error', `Не вдалося надіслати запит. Зателефонуйте нам: <a href="tel:${PHONE.replace(/[^\d+]/g, '')}">${PHONE}</a>.`);
+		} finally {
+			submit.disabled = false;
+			submit.textContent = submitLabel;
+		}
+	});
+}
+
+document.querySelectorAll('form[data-hotelos]').forEach(setup);
   </script>
 </body>
 </html>
